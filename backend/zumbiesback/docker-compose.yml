@@ -4,11 +4,10 @@ services:
 
   db:
     image:  postgres:alpine
-    restart: always
     environment:
       POSTGRES_PASSWORD: 123456
       POSTGRES_USER: danilo
     volumes:
-      - /database:/var/lib/postgresql
+      - ./postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
