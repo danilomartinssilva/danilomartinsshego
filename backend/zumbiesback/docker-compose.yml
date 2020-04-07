@@ -1,13 +1,14 @@
-version: '3.1'
-
+version: '3'
 services:
-
   db:
-    image:  postgres:alpine
+    container_name: test
+    restart: unless-stopped
+    image: mysql:5.7
+    command: --innodb_use_native_aio=0
     environment:
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_USER: danilo
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'mydb'
+    ports: 
+      - 3306:3306
     volumes:
-      - ./postgres:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+      - ./mysql:/var/lib/mysql
