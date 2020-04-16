@@ -1,4 +1,5 @@
 export function LoginRequest(login) {
+  console.log('Login', login)
   return {
     type: '@LOGIN/LOGIN_REQUEST',
     login

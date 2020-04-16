@@ -36,6 +36,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
 
+      },
+      avatar_url: {
+        type: Sequelize.STRING,
+        allowNull: true
       }
     });
 

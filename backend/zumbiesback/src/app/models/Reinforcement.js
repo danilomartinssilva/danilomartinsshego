@@ -6,7 +6,8 @@ class Reinforcement extends Model {
     super.init({
       name: Sequelize.STRING,
       description: Sequelize.TEXT,
-      zumbi_id: Sequelize.INTEGER
+      zumbi_id: Sequelize.INTEGER,
+      avatar_url: Sequelize.STRING,
     }, {
       sequelize,
       tableName: "reinforcements"

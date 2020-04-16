@@ -8,8 +8,10 @@ width:120px;
 height:120px;
 border-radius:60px;
 background:#ececec;
+align-self:center;
+margin:20px;
 justify-content:center;
-align-items:center
+align-items:center;
 
 `
 export const Text = styled.Text`
@@ -21,8 +23,9 @@ font-weight:bold;
 `
 export const Image = styled.Image`
 
-width:80px;
-height:80px;
+width:120px;
+height:120px;
+border-radius:60px;
 
 
 

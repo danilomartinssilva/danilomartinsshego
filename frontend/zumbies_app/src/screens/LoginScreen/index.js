@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import { useDispatch } from 'react-redux'
 
 import { Container, Input, SubmitButton, TextSubmitButton, Title, AddUserButton } from './styles';
 import api from '../../store/api'
-export default function LoginScreen({ navigation }) {
 
-  const [email, setEmail] = useState('')
+
+export default function LoginScreen({ navigation }) {
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState()
   const [password, setPassword] = useState('')
   async function handeLogin() {
+    /*  const login = await api.post('/login', { email, password });
+     const result = await login.data;
+     if (result.status) {
+       navigation.navigate('AboutScreen')
+     } */
+    const credential = { email, password }
+    dispatch({ type: '@LOGIN/LOGIN_REQUEST', login: credential });
 
 
-    const login = await api.post('/login', { email, password });
-    const result = await login.data;
 
-    alert(JSON.stringify(result))
+
+
   }
   return (
     <Container>

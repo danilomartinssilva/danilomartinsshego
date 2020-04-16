@@ -1,10 +1,10 @@
 import '../config/Reactotron'
 import { createStore, applyMiddleware, compose } from 'redux'
-
+import rootSagas from './modules/rootSagas'
 import createSagaMiddleware from 'redux-saga'
 import { persistStore } from 'redux-persist'
 import persistReducer from 'redux-persist/es/persistReducer'
-import AsyncStorage from '@react-native-community/async-storage'
+import { AsyncStorage } from 'react-native'
 import logger from 'redux-logger'
 import rootReducers from './modules/rootReducers'
 
@@ -23,4 +23,5 @@ const enhancer = process.env.NODE_ENV === 'developement' ?
 
 const store = createStore(persistedReducer, enhancer)
 const persistor = persistStore(store)
+sagaMiddlweare.run(rootSagas)
 export { store, persistor }

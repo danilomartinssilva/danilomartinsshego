@@ -15,16 +15,18 @@ class LoginController {
       }
     })
     if (!user) {
-      return res.json(({
-        status: false,
-        message: 'Usuário não existe'
-      })).status(200)
+      return res.status(401)
+        .json(({
+          status: false,
+          message: 'Usuário não existe'
+        }))
     }
     if (!await user.checkPassword(password)) {
-      return res.json({
-        status: false,
-        message: "Senha não confere"
-      }).status(200)
+      return res.status(401).
+        json({
+          status: false,
+          message: "Senha não confere"
+        })
     }
     const { id, name } = user;
     return res.json({

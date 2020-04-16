@@ -1,0 +1,10 @@
+
+routes.get('/reinforcements', ReinforcementController.list)
+routes.get('/equipaments', EquipamentController.list)
+routes.post('/equipament', EquipamentController.create)
+//Controllers- Zumbi
+routes.post('/login', LoginController.login)
+routes.get('/zumbi/list', verifyToken, ZumbiController.list)
+routes.post('/user/add', UserController.save)
+
+routes.post('/zumbi/add', verifyToken, ZumbiController.save)

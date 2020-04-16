@@ -14,13 +14,14 @@ routes.get('/', async (req, res) => {
   }).status(200)
 })
 
-routes.get('/reinforcements', ReinforcementController.list)
-routes.get('/equipaments', EquipamentController.list)
-routes.post('/equipament', EquipamentController.create)
+routes.get('/reinforcements', verifyToken, ReinforcementController.list)
+routes.get('/equipaments', verifyToken, EquipamentController.list)
+routes.post('/equipament', verifyToken, EquipamentController.create)
 //Controllers- Zumbi
 routes.post('/login', LoginController.login)
 routes.get('/zumbi/list', verifyToken, ZumbiController.list)
 routes.post('/user/add', UserController.save)
+routes.get('/user', verifyToken, UserController.getById)
 
 routes.post('/zumbi/add', verifyToken, ZumbiController.save)
 

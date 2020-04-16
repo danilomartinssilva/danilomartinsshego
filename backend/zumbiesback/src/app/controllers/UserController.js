@@ -2,6 +2,21 @@ import User from '../models/User'
 
 class UserController {
 
+  async getById(req, res) {
+    const { id } = req.query;
+    const user = await User.findOne({
+      where: {
+        id
+      }
+    })
+    user.password = undefined;
+    return res.status(200).json({
+      result: user,
+      status: true
+    })
+  }
+
+
   async save(req, res) {
     const { email } = req.body
     const userExists = await User.findOne({
